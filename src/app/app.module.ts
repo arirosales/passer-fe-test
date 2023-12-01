@@ -9,11 +9,16 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+import { BasePageComponent } from '../pages/base-page/base-page.component';
+import { ComponentsModule} from '../components/components.module'
+import { HttpClientModule } from '@angular/common/http';
+
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http, './assets/i18n/', '.json'); }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
       useFactory: (HttpLoaderFactory),
       deps: [HttpClient]
     }}),
+    ComponentsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
