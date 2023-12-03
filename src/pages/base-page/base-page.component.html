@@ -21,6 +21,9 @@
     <div *ngIf="option === 'paises'">
         <app-country (countriesDataChange)="onDataChange($event)" (countriesDataTable)="onCountrySelect($event)"></app-country>
     </div>
+    <div *ngIf="option === 'identificaciones'">
+        <app-identification-type (identificationDataChange)="onDataChange($event)"></app-identification-type>
+    </div>
     
    
 
