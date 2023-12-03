@@ -19,51 +19,18 @@
       </mat-autocomplete>
     </mat-form-field>
   </div>
-  <div class="countryTableContainer">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="sugefCode">
-        <th mat-header-cell *matHeaderCellDef> SugefCode </th>
-        <td mat-cell *matCellDef="let element"> {{element.sugefCode}} </td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="riskScore">
-        <th mat-header-cell *matHeaderCellDef> RiskScore </th>
-        <td mat-cell *matCellDef="let element"> {{element.riskScore}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="code">
-        <th mat-header-cell *matHeaderCellDef> Code </th>
-        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="ocupationsColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: ocupationsColumns;"></tr>
-    </table>
-
-
+  <div class="countryTableContainer" *ngIf="option === 'ocupaciones'">
+    <app-ocupation-table ></app-ocupation-table>
   </div>
 
   <div *ngIf="option === 'ocupaciones'">
     <app-ocupation
-     (sendNames)="onDataChange($event) "
-     (ocupationsTable)="onGetOcupation($event)" ></app-ocupation>
+     (sendNames)="onDataChange($event) "></app-ocupation>
     
   </div>
   <div *ngIf="option === 'paises'">
     <app-country (countriesDataChange)="onDataChange($event)"></app-country>
+ 
   </div>
   <div *ngIf="option === 'identificaciones'">
     <app-identification-type (identificationDataChange)="onDataChange($event)"></app-identification-type>

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-base-page',
@@ -13,12 +13,12 @@ export class BasePageComponent {
     { name: 'Países', action: 'paises' },
     { name: 'Identificaciones', action: 'identificaciones' },
   ];
+  
   // List 
   dropDownListOptions: any[] = [];
-  // Is the structure of the table occupations
-  ocupationsColumns: any[] = ['name', 'sugefCode', 'riskScore', 'code'];
+
   // Load data from the table of occupations
-  dataSource: any[] = [];
+  dataSourcep: any[] = [];
   // Gets its name from the occupations
   getNames : string[] = [];
   // Controls the change of action
@@ -32,7 +32,7 @@ export class BasePageComponent {
  
   // In the following task is functional
   filterOptions() {
-    this.filteredOptions = this.dataSource.filter(option =>
+    this.filteredOptions = this.dataSourcep.filter(option =>
       option.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
   } 
@@ -58,12 +58,8 @@ export class BasePageComponent {
   onDataChange(data: any[]) {
     this.dropDownListOptions = data;
     this.getNames=data;
-
-  }
-
-  // This method is responsible for obtaining the data loaded in the table
-  onGetOcupation(data: any[]) {
-    this.dataSource = data;
+    
+  
   }
   
  
