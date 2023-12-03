@@ -66,3 +66,26 @@
     border: none;
     opacity: 1;
 }
+.countryTableContainer{
+    position: relative;
+    left: 16px;
+    top: 45px;
+    width: calc(100% - 32px);
+    /* Toma el 100% del ancho menos el espacio de los márgenes */
+
+    height: 300px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+ 
+    border-radius: 5px;
+    opacity: 1;
+}
+.countryTable {
+    width: calc(100% - 32px);
+    font: normal normal bold 14px/19px Roboto;
+    font-size: 14px;
+    color: #404051;
+
+   
+ 
+}
