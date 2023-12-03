@@ -13,10 +13,15 @@
             <option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }}</option>
         </select>
     </div>
+   
 
     <div *ngIf="option === 'ocupaciones'">
         <app-ocupation (ocupationsDataChange)="onDataChange($event)"></app-ocupation>
     </div>
-
+    <div *ngIf="option === 'paises'">
+        <app-country (countriesDataChange)="onDataChange($event)" (countriesDataTable)="onCountrySelect($event)"></app-country>
+    </div>
+    
+   
 
 </div>

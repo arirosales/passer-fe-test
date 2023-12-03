@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ResponseOcupation  } from '../models/response-catalogs';
+import { ResponseOcupation, ResponseCountryList  } from '../models/response-catalogs';
 @Injectable({
     providedIn: 'root',
 })
@@ -22,6 +22,15 @@ export class GeneralMethodsService {
   async getOccupations(): Promise<ResponseOcupation> {
     const response$ = this.http.get<ResponseOcupation>(
       this.urlCatalogs + this.GET_OCUPATIONS,
+    );
+
+    return await lastValueFrom(response$);
+  }
+
+  // Method to get countries
+  async getCountries(): Promise<ResponseCountryList> {
+    const response$ = this.http.get<ResponseCountryList>(
+      this.urlCatalogs + this.GET_COUNTRIES,
     );
 
     return await lastValueFrom(response$);

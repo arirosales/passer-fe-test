@@ -19,6 +19,8 @@ export class BasePageComponent {
   // Controls the change of action
   option: string = '';
 
+  selectedCountry: any;
+
   // Updates the option variable if the action property has any events
   onTabChange(event: { action: string }) {
     this.option = event.action;
@@ -28,6 +30,9 @@ export class BasePageComponent {
   onDataChange(data: any[]) {
     this.dropDownListOptions = data;
  
+  }
+  onCountrySelect(country: any) {
+    this.selectedCountry = country; // Set the selected country
   }
 
 }

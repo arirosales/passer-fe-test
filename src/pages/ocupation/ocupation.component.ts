@@ -1,6 +1,6 @@
-import { Component, Output, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { GeneralMethodsService } from '../../endpoints/catalogs.connections';
-import { Ocupation } from '../../models/catalogs';
+
 
 @Component({
   selector: 'app-ocupation',
