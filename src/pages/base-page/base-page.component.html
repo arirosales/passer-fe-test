@@ -1,19 +1,21 @@
 <div class="firstDiv">
-
     <div class="littleDiv">
         <h1>CATÁLOGO DE RIESGO</h1>
     </div>
 
     <div class="botonlist">
-        <app-tabs [list]="tabsList"></app-tabs>
-    </div>
-    
+        <app-tabs [list]="tabsList" (onChangeLink)="onTabChange($event)"></app-tabs> </div>
+
 
     <div class="searchDiv">
         <h1>Buscar</h1>
         <select class="dropDownList">
-           
+            <option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }}</option>
         </select>
+    </div>
+
+    <div *ngIf="option === 'ocupaciones'">
+        <app-ocupation (ocupationsDataChange)="onDataChange($event)"></app-ocupation>
     </div>
 
 

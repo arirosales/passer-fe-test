@@ -6,14 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./base-page.component.scss']
 })
 export class BasePageComponent {
+
+  // Completes the list of the 3 required buttons
   tabsList = [
     { name: 'Ocupaciones', action: 'ocupaciones' },
     { name: 'Países', action: 'paises' },
     { name: 'Identificaciones', action: 'identificaciones' },
-    // Agrega más pestañas según sea necesario
   ];
-  constructor() {
-    console.log(this.tabsList);
+
+  // List 
+  dropDownListOptions: any[] = [];
+  // Controls the change of action
+  option: string = '';
+
+  // Updates the option variable if the action property has any events
+  onTabChange(event: { action: string }) {
+    this.option = event.action;
   }
-  // Puedes agregar más opciones o lógica según sea necesario
+
+  // UpdateS dropDownListOptions in case the array has a new dataset
+  onDataChange(data: any[]) {
+    this.dropDownListOptions = data;
+ 
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-
+import { OcupationComponent } from 'src/pages/ocupation/ocupation.component';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
