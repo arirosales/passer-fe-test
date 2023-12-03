@@ -8,7 +8,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { CountriesTableComponent } from './components/countries-table/countries-table.component';
+import { IdentificationTableComponent } from './components/identification-table/identification-table.component';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 // This component is created to allow the communication of the pages
 
@@ -18,14 +21,18 @@ import { CountriesTableComponent } from './components/countries-table/countries-
     CountryComponent,
     IdentificationTypeComponent,
     OcupationTableComponent,
-    CountriesTableComponent
+    CountriesTableComponent,
+    IdentificationTableComponent
   ],
   exports: [
     OcupationComponent, 
     CountryComponent,
     IdentificationTypeComponent,
     OcupationTableComponent,
-    CountriesTableComponent
+    CountriesTableComponent, 
+    IdentificationTableComponent,
+    MatSelectModule,
+    MatFormFieldModule
   
   ],
   imports:[

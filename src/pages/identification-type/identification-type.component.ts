@@ -29,6 +29,13 @@ export class IdentificationTypeComponent {
      if (response.success) {
        const identificationName = response.data.map(TypeId => TypeId.name);
        this.identificationDataChange.emit(identificationName);
+
+       const identificationGetAll = response.data.map(TypeId => ({
+        code: TypeId.code,
+        name: TypeId.name,
+        sugefCode: TypeId.sugefCode}
+        )as TypeId);
+      this.identificationDataTable.emit(identificationGetAll);
      }
    } catch (error) {
      console.error('Error fetching countries:', error);

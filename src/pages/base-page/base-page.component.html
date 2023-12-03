@@ -10,33 +10,36 @@
 
   <div class="searchDiv">
     <h1>Buscar</h1>
-    <mat-form-field class="example-full-width">
-      <input matInput  [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()"
-        [matAutocomplete]="auto" />
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAutocompleteSelected($event)">
-        <mat-option option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }} 
-        </mat-option>
-      </mat-autocomplete>
+    <mat-form-field class="example-full-width ">
+      <mat-label></mat-label>
+      <mat-select>
+
+        <mat-option option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }} </mat-option>
+
+      </mat-select>
     </mat-form-field>
+
   </div>
   <div class="countryTableContainer">
-    <div *ngIf="option === 'ocupaciones'" >
-      <app-ocupation-table ></app-ocupation-table>
+    <div *ngIf="option === 'ocupaciones'">
+      <app-ocupation-table></app-ocupation-table>
     </div>
-    <div *ngIf="option === 'paises'" >
-      <app-countries-table ></app-countries-table>
+    <div *ngIf="option === 'paises'">
+      <app-countries-table></app-countries-table>
+    </div>
+    <div *ngIf="option === 'identificaciones'">
+      <app-identification-table></app-identification-table>
     </div>
 
   </div>
 
   <div *ngIf="option === 'ocupaciones'">
-    <app-ocupation
-     (sendNames)="onDataChange($event) "></app-ocupation>
-    
+    <app-ocupation (sendNames)="onDataChange($event) "></app-ocupation>
+
   </div>
   <div *ngIf="option === 'paises'">
     <app-country (countriesDataChange)="onDataChange($event)"></app-country>
- 
+
   </div>
   <div *ngIf="option === 'identificaciones'">
     <app-identification-type (identificationDataChange)="onDataChange($event)"></app-identification-type>
