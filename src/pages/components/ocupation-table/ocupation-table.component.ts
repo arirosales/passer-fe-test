@@ -1,7 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Ocupation } from 'src/models/catalogs';
-
-import { MatTableModule } from '@angular/material/table';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -15,14 +12,14 @@ import { MatTableModule } from '@angular/material/table';
 export class OcupationTableComponent {
   columns: any[] = ['name', 'sugefCode', 'riskScore', 'code'];
   dataSource: any[] = [];
-  ocupations: Ocupation[] = [];
+  
 
   onGetOcupation(data: any[]) {
     this.dataSource = data;
-    console.log("tablsaaaaa", this.dataSource )
+   
   }
   
 
 
-  // Función para actualizar los datos
+
 }

@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { CountriesTableComponent } from './components/countries-table/countries-table.component';
 
 
 // This component is created to allow the communication of the pages
@@ -17,13 +18,14 @@ import { CommonModule } from '@angular/common';
     CountryComponent,
     IdentificationTypeComponent,
     OcupationTableComponent,
-   
+    CountriesTableComponent
   ],
   exports: [
     OcupationComponent, 
     CountryComponent,
     IdentificationTypeComponent,
     OcupationTableComponent,
+    CountriesTableComponent
   
   ],
   imports:[

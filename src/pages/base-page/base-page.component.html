@@ -11,7 +11,7 @@
   <div class="searchDiv">
     <h1>Buscar</h1>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Buscar" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()"
+      <input matInput  [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()"
         [matAutocomplete]="auto" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAutocompleteSelected($event)">
         <mat-option option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }} 
@@ -19,8 +19,14 @@
       </mat-autocomplete>
     </mat-form-field>
   </div>
-  <div class="countryTableContainer" *ngIf="option === 'ocupaciones'">
-    <app-ocupation-table ></app-ocupation-table>
+  <div class="countryTableContainer">
+    <div *ngIf="option === 'ocupaciones'" >
+      <app-ocupation-table ></app-ocupation-table>
+    </div>
+    <div *ngIf="option === 'paises'" >
+      <app-countries-table ></app-countries-table>
+    </div>
+
   </div>
 
   <div *ngIf="option === 'ocupaciones'">

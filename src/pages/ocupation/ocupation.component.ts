@@ -6,7 +6,8 @@ import { Ocupation } from 'src/models/catalogs';
 @Component({
   selector: 'app-ocupation',
   templateUrl: './ocupation.component.html',
-  styleUrls: ['./ocupation.component.scss']
+  styleUrls: ['./ocupation.component.scss'],
+  
 })
 
 export class OcupationComponent implements OnInit {

@@ -51,7 +51,14 @@
         padding-top: 16px;
     }
 }
-
+.example-full-width {
+     position: relative; 
+    top: 1px; 
+    left: 16px; 
+    
+    width: 206px;
+    height: 50%;
+  }
 .dropDownList {
     /* Layout Properties */
     position: relative; 

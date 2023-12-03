@@ -1,0 +1,29 @@
+<div>
+    <table mat-table #table  [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="sugefCode">
+        <th mat-header-cell *matHeaderCellDef> SugefCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.sugefCode}} </td>
+      </ng-container>
+    
+   
+      <ng-container matColumnDef="riskScore">
+        <th mat-header-cell *matHeaderCellDef> RiskScore </th>
+        <td mat-cell *matCellDef="let element"> {{element.riskScore}} </td>
+      </ng-container>
+    
+     
+    
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+  <app-country (countriesDataTable)="onGetCountry($event)"></app-country>
+    
+  </div>
+  
+  
+  
