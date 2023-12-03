@@ -1,30 +1,74 @@
 <div class="firstDiv">
-    <div class="littleDiv">
-        <h1>CATÁLOGO DE RIESGO</h1>
-    </div>
+  <div class="littleDiv">
+    <h1>CATÁLOGO DE RIESGO</h1>
+  </div>
 
-    <div class="botonlist">
-        <app-tabs [list]="tabsList" (onChangeLink)="onTabChange($event)"></app-tabs> </div>
+  <div class="botonlist">
+    <app-tabs [list]="tabsList" (onChangeLink)="onTabChange($event)"></app-tabs>
+  </div>
 
 
-    <div class="searchDiv">
-        <h1>Buscar</h1>
-        <select class="dropDownList">
-            <option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }}</option>
-        </select>
-    </div>
-   
+  <div class="searchDiv">
+    <h1>Buscar</h1>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Buscar" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()"
+        [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAutocompleteSelected($event)">
+        <mat-option option *ngFor="let option of dropDownListOptions" [value]="option">{{ option }} 
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="countryTableContainer">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <div *ngIf="option === 'ocupaciones'">
-        <app-ocupation (ocupationsDataChange)="onDataChange($event)"></app-ocupation>
-    </div>
-    <div *ngIf="option === 'paises'">
-        <app-country (countriesDataChange)="onDataChange($event)" (countriesDataTable)="onCountrySelect($event)"></app-country>
-    </div>
-    <div *ngIf="option === 'identificaciones'">
-        <app-identification-type (identificationDataChange)="onDataChange($event)"></app-identification-type>
-    </div>
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="sugefCode">
+        <th mat-header-cell *matHeaderCellDef> SugefCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.sugefCode}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="riskScore">
+        <th mat-header-cell *matHeaderCellDef> RiskScore </th>
+        <td mat-cell *matCellDef="let element"> {{element.riskScore}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Code </th>
+        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="ocupationsColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: ocupationsColumns;"></tr>
+    </table>
+
+
+  </div>
+
+  <div *ngIf="option === 'ocupaciones'">
+    <app-ocupation
+     (sendNames)="onDataChange($event) "
+     (ocupationsTable)="onGetOcupation($event)" ></app-ocupation>
     
-   
+  </div>
+  <div *ngIf="option === 'paises'">
+    <app-country (countriesDataChange)="onDataChange($event)"></app-country>
+  </div>
+  <div *ngIf="option === 'identificaciones'">
+    <app-identification-type (identificationDataChange)="onDataChange($event)"></app-identification-type>
+  </div>
+
+
 
 </div>

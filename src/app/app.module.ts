@@ -9,11 +9,13 @@ import { AppMaterialModule } from './app.material.module';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
 import { BasePageComponent } from '../pages/base-page/base-page.component';
 import { ComponentsModule} from '../components/components.module'
 import { HttpClientModule } from '@angular/common/http';
 import { pagesModule} from '../pages/pages.module'
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http, './assets/i18n/', '.json'); }
 
 @NgModule({
@@ -36,6 +38,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
     pagesModule,
     HttpClientModule,
     FormsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
